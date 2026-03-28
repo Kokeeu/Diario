@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Indie+Flower&display=swap');
+
+:root {
+  --rosa-anime: #ffafcc;
+  --morado-anime: #cdb4db;
+  --texto-principal: #5e548e;
+}
+
+body {
+  margin: 0; padding: 0;
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  background-attachment: fixed;
+  font-family: 'Quicksand', sans-serif;
+  display: flex; justify-content: center; min-height: 100vh;
+}
+
+.ContenedorApp {
+  max-width: 500px; width: 90%; margin: 40px auto; padding: 35px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+  border-radius: 30px; border: 2px solid white;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  display: flex; flex-direction: column; align-items: center;
+}
+
+.cabecera-diario { text-align: center; margin-bottom: 20px; }
+.cabecera-diario h1 { 
+  font-family: 'Indie Flower', cursive; font-size: 2.8rem; 
+  color: #ff5d8f; margin: 0; text-shadow: 2px 2px 0px white;
+}
+.frase-dia { font-style: italic; font-size: 0.9rem; color: #7b2cbf; margin-top: 5px; opacity: 0.9; }
+
+
+.caja-busqueda { width: 100%; margin-bottom: 20px; }
+.caja-busqueda input {
+  width: 100%; padding: 12px; border-radius: 50px; border: 2px solid white;
+  background: rgba(255, 255, 255, 0.6); outline: none;
+  font-family: inherit; text-align: center; color: var(--texto-principal);
+}
+
+
+.etiqueta-selector { font-size: 0.8rem; font-weight: bold; margin-bottom: 8px; opacity: 0.7; }
+.selector-animo, .selector-sticker {
+  display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;
+}
+.boton-animo, .boton-sticker {
+  background: white; border: 2px solid transparent; border-radius: 50%;
+  width: 40px; height: 40px; cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+}
+.boton-animo.activo { border-color: var(--color-animo); background: var(--color-animo); transform: scale(1.1); }
+.boton-sticker.activo { border-color: var(--rosa-anime); background: var(--rosa-anime); }
+
+
+.seccion-editor { width: 100%; display: flex; flex-direction: column; gap: 10px; }
+textarea {
+  width: 100%; height: 100px; padding: 15px; border-radius: 20px;
+  border: 2px solid white; background: rgba(255, 255, 255, 0.9);
+  resize: none; outline: none; font-family: inherit;
+}
+.boton-guardar {
+  background: var(--rosa-anime); color: white; border: none; padding: 15px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s;
+}
+.boton-guardar:hover { background: #ff8fab; transform: translateY(-2px); }
+
+
+.lista-notas { width: 100%; margin-top: 40px; display: flex; flex-direction: column; gap: 30px; }
+.tarjeta-nota {
+  background: white; padding: 25px; border-radius: 25px; position: relative;
+  border-left: 10px solid; box-shadow: 8px 8px 0px rgba(0,0,0,0.03);
+  animation: aparecer 0.3s ease;
+}
+@keyframes aparecer { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+.sticker-nota { position: absolute; top: -25px; left: -20px; font-size: 3rem; filter: drop-shadow(2px 2px 0px white); transform: rotate(-10deg); }
+.fecha-nota { font-size: 0.7rem; color: white; padding: 3px 10px; border-radius: 10px; font-weight: bold; }
+.texto-nota { margin-top: 10px; line-height: 1.5; white-space: pre-wrap; }
+
+.acciones-nota { position: absolute; top: 15px; right: 15px; display: flex; gap: 5px; }
+.boton-accion { background: #f8f8f8; border: none; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;}
